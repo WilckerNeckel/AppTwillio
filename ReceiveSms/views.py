@@ -2,10 +2,15 @@
 from rest_framework import views
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import permissions, authentication
 from twilio.twiml.messaging_response import MessagingResponse
 from .serializers import SmsSerializer
 
 class TwilioWebhookView(views.APIView):
+
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
+
     def post(self, request):
         # Validar os dados recebidos da Twilio
         try:

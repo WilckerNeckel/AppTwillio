@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from ReceiveSms.views import ReceiveSmsViewSet
+from ReceiveSms.views import TwilioWebhookView
 from rest_framework.authtoken import views 
 
 router = routers.DefaultRouter()
-router.register(r'smsmessages', ReceiveSmsViewSet, basename='Messages')
+router.register(r'smsmessages', TwilioWebhookView, basename='Messages')
 
 
 urlpatterns = [
