@@ -1,0 +1,25 @@
+{
+
+    "builds": [{
+
+        "src": "AppTwilio/wsgi.py",
+
+        "use": "@vercel/python",
+
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+
+    }],
+
+    "routes": [
+
+        {
+
+            "src": "/(.*)",
+
+            "dest": "AppTwilio/wsgi.py"
+
+        }
+
+    ]
+
+}
