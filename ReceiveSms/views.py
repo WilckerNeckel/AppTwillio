@@ -8,9 +8,6 @@ from .serializers import SmsSerializer
 
 class TwilioWebhookView(APIView):
 
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
-
     def post(self, request):
         # Validar os dados recebidos da Twilio
         try:
@@ -38,21 +35,3 @@ class TwilioWebhookView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-
-'''def ReceiveSms(request):
-    message_body = request.POST.get('Body', '')  
-    resp = MessagingResponse()
-
-
-    return HttpResponse(str(resp), content_type='text/xml')'''
-
-
-
-'''class ReceiveSmsViewSet(viewsets.ModelViewSet):
-    serializer_class = SmsSerializer
-    permission_classes = [permissions.IsAuthenticated]
-    authentication_classes = [authentication.TokenAuthentication, authentication.SessionAuthentication]
-
-    def create(self, request):
-        user = self.request.user
-        return List.objects.filter(owner=user)'''
