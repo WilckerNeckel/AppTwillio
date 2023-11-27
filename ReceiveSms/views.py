@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework import permissions, authentication
 from twilio.twiml.messaging_response import MessagingResponse
 from .serializers import SmsSerializer
+from .models import SmsInfo
+
 
 class TwilioWebhookView(APIView):
 
@@ -35,3 +37,8 @@ class TwilioWebhookView(APIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
+class SmsInfoListView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        serializer = SmsSerializer(SmsInfo.objects.all(), many=True)
+        return Response(serializer.data)
