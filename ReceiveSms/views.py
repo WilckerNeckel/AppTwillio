@@ -17,7 +17,7 @@ class TwilioWebhookView(APIView):
         except KeyError as chave_json:
             return Response({'detail': f'Campo obrigatório ausente: {chave_json}'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Validar  os dados de acordo com as regras que coloquei no serializer, nesse caso nenhuma, e salvar os dados no banco de dados
+        # Validar  os dados de acordo com as regras que coloquei no serializer, nesse caso nenhuma, o papel do serializer vai ser pegar os dados recebidos por http, e salvar no banco de dados com o serializer.save()
         serializer = SmsSerializer(data={
             'message': message_body,
             'sender': sender,

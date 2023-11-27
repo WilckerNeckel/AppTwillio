@@ -5,4 +5,4 @@ from rest_framework import serializers
 class SmsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SmsInfo
-        fields = ['id', 'recipient', 'message']
+        fields = ['id', 'message', 'sender', 'recipient']
