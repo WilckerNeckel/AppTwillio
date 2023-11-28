@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-k6h@_*kc++u*^)@q_^ar&0n80996tsx550-r_f0_ufs&=e+#eg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.verce.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['52.203.193.235', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -122,5 +122,11 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+    "52.203.193.235"
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
